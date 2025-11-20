@@ -1,75 +1,68 @@
-import { Menu, Search, Briefcase, CalendarDays } from "lucide-react";
-import { useState } from "react";
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
+import { Link, NavLink } from 'react-router-dom'
 
-function NavLink({ children }) {
+function PillLink({ to, children, onClick }) {
   return (
-    <a href="#" className="text-slate-300 hover:text-white transition-colors text-sm">
+    <NavLink
+      to={to}
+      onClick={onClick}
+      className={({ isActive }) =>
+        `px-4 py-2 rounded-full text-sm transition-colors border ${
+          isActive
+            ? 'bg-violet-600 text-white border-violet-500 shadow'
+            : 'bg-white text-violet-900/90 hover:bg-violet-100 border-violet-200'
+        }`
+      }
+    >
       {children}
-    </a>
-  );
+    </NavLink>
+  )
 }
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
-    <header className="relative z-20">
+    <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/70 border-b border-violet-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-5">
+        <div className="flex items-center justify-between h-16">
           {/* Brand */}
-          <a href="/" className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-500 via-cyan-400 to-indigo-600 shadow-lg shadow-blue-500/30" />
-            <span className="text-white font-semibold text-lg tracking-tight">
-              Jobs<span className="text-cyan-300">Territory</span>
-            </span>
-          </a>
+          <Link to="/" className="flex items-center gap-3">
+            <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-indigo-500 shadow-md" />
+            <span className="text-xl font-semibold tracking-tight text-violet-900">Jobs Territory</span>
+          </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <NavLink>Solutions</NavLink>
-            <NavLink>Talent Network</NavLink>
-            <NavLink>Pricing</NavLink>
-            <NavLink>Case Studies</NavLink>
+          <nav className="hidden md:flex items-center gap-3">
+            <PillLink to="/">Home</PillLink>
+            <PillLink to="/fractional-hiring">Fractional Hiring</PillLink>
+            <PillLink to="/pay-per-hire">Pay Per Hire</PillLink>
+            <PillLink to="/contact">Hire Now</PillLink>
+            <PillLink to="/resources">Resources</PillLink>
+            <PillLink to="/about">About Us</PillLink>
           </nav>
 
-          {/* Actions */}
-          <div className="hidden md:flex items-center gap-3">
-            <button className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-              <Search size={16} />
-              Find Talent
-            </button>
-            <button className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-slate-900 bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 hover:from-cyan-300 hover:via-blue-500 hover:to-indigo-500 transition-colors shadow-lg shadow-blue-500/30">
-              <CalendarDays size={16} />
-              Book a demo
-            </button>
-          </div>
-
           {/* Mobile */}
-          <button onClick={() => setOpen(!open)} className="md:hidden text-white/80 hover:text-white">
-            <Menu />
+          <button onClick={() => setOpen(!open)} className="md:hidden inline-flex items-center justify-center rounded-full p-2 text-violet-900 hover:bg-violet-100">
+            {open ? <X /> : <Menu />}
           </button>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile panel */}
         {open && (
-          <div className="md:hidden border-t border-white/10 pt-4 pb-6 space-y-3">
-            <div className="grid grid-cols-2 gap-3">
-              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Solutions</a>
-              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Talent Network</a>
-              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Pricing</a>
-              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Case Studies</a>
-            </div>
-            <div className="flex gap-3 pt-3">
-              <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm text-white/90 border border-white/10 bg-white/5">
-                <Search size={16} /> Find Talent
-              </button>
-              <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm text-slate-900 bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600">
-                <Briefcase size={16} /> Post a role
-              </button>
+          <div className="md:hidden pb-4">
+            <div className="grid grid-cols-2 gap-2">
+              <PillLink to="/" onClick={() => setOpen(false)}>Home</PillLink>
+              <PillLink to="/fractional-hiring" onClick={() => setOpen(false)}>Fractional Hiring</PillLink>
+              <PillLink to="/pay-per-hire" onClick={() => setOpen(false)}>Pay Per Hire</PillLink>
+              <PillLink to="/contact" onClick={() => setOpen(false)}>Hire Now</PillLink>
+              <PillLink to="/resources" onClick={() => setOpen(false)}>Resources</PillLink>
+              <PillLink to="/about" onClick={() => setOpen(false)}>About Us</PillLink>
             </div>
           </div>
         )}
       </div>
     </header>
-  );
+  )
 }
