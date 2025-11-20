@@ -24,7 +24,7 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white"
             >
-              Discover your next role in a modern job marketplace
+              Scale your hiring with a modern talent platform
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -32,10 +32,10 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="mt-5 text-lg text-slate-300 max-w-2xl"
             >
-              Search thousands of curated opportunities across tech, design, product, and more. Connect with top companies and get hired faster.
+              Tap into a vetted network of engineers, designers, and product leaders. Post roles, manage pipelines, and hire faster with less overhead.
             </motion.p>
 
-            {/* Search bar */}
+            {/* CTA bar for clients */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -43,26 +43,26 @@ export default function Hero() {
               className="mt-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-2 flex flex-col sm:flex-row gap-2"
             >
               <input
-                placeholder="Job title or keyword"
+                placeholder="Role title (e.g., Senior Frontend Engineer)"
                 className="flex-1 rounded-xl bg-transparent px-4 py-3 text-white placeholder:text-slate-400 focus:outline-none"
               />
               <input
-                placeholder="Location"
+                placeholder="Seniority / budget"
                 className="flex-1 rounded-xl bg-transparent px-4 py-3 text-white placeholder:text-slate-400 focus:outline-none"
               />
               <button className="rounded-xl px-5 py-3 text-slate-900 font-medium bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 hover:from-cyan-300 hover:via-blue-500 hover:to-indigo-500 transition-colors">
-                Search Jobs
+                Post a role
               </button>
             </motion.div>
 
             <div className="mt-6 flex items-center gap-6 text-slate-400 text-sm">
-              <span>Trending: Frontend, Product Manager, Data Analyst, UX</span>
+              <span>Trusted by startups and enterprises hiring remote-first teams</span>
             </div>
           </div>
 
-          {/* Stats */}
+          {/* Stats tailored to clients */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-4 lg:gap-6">
-            {[{label:'Live Jobs',value:'18,450'},{label:'Companies',value:'2,310'},{label:'Remote Roles',value:'7,820'},{label:'New Today',value:'623'}].map((s, i) => (
+            {[{label:'Vetted talent',value:'45k+'},{label:'Avg. time-to-hire',value:'12 days'},{label:'Retention rate',value:'93%'},{label:'NPS',value:'+72'}].map((s, i) => (
               <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 * i }} className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="text-3xl font-semibold text-white">{s.value}</div>
                 <div className="mt-1 text-slate-400 text-sm">{s.label}</div>

@@ -1,4 +1,4 @@
-import { Menu, Search, Briefcase, UserPlus } from "lucide-react";
+import { Menu, Search, Briefcase, CalendarDays } from "lucide-react";
 import { useState } from "react";
 
 function NavLink({ children }) {
@@ -26,21 +26,21 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            <NavLink>Jobs</NavLink>
-            <NavLink>Companies</NavLink>
-            <NavLink>Categories</NavLink>
-            <NavLink>Blog</NavLink>
+            <NavLink>Solutions</NavLink>
+            <NavLink>Talent Network</NavLink>
+            <NavLink>Pricing</NavLink>
+            <NavLink>Case Studies</NavLink>
           </nav>
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-3">
             <button className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-white/90 hover:text-white border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
               <Search size={16} />
-              Find Jobs
+              Find Talent
             </button>
             <button className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-slate-900 bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 hover:from-cyan-300 hover:via-blue-500 hover:to-indigo-500 transition-colors shadow-lg shadow-blue-500/30">
-              <UserPlus size={16} />
-              Post a Job
+              <CalendarDays size={16} />
+              Book a demo
             </button>
           </div>
 
@@ -54,17 +54,17 @@ export default function Navbar() {
         {open && (
           <div className="md:hidden border-t border-white/10 pt-4 pb-6 space-y-3">
             <div className="grid grid-cols-2 gap-3">
-              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Jobs</a>
-              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Companies</a>
-              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Categories</a>
-              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Blog</a>
+              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Solutions</a>
+              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Talent Network</a>
+              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Pricing</a>
+              <a href="#" className="rounded-lg bg-white/5 hover:bg-white/10 text-slate-200 px-4 py-3">Case Studies</a>
             </div>
             <div className="flex gap-3 pt-3">
               <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm text-white/90 border border-white/10 bg-white/5">
-                <Search size={16} /> Find Jobs
+                <Search size={16} /> Find Talent
               </button>
               <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm text-slate-900 bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600">
-                <Briefcase size={16} /> Post a Job
+                <Briefcase size={16} /> Post a role
               </button>
             </div>
           </div>
